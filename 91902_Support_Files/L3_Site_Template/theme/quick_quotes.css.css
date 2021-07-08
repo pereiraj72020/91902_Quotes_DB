@@ -125,8 +125,8 @@ body {
 /* Area colouring... */
 
 /* logo, banner and footer background are the same */
-.logo, .banner, .footer {
-    background-color: #888;  /* dark grey */
+.banner, .footer {
+    background-color: #d76868;  /* light red */
 }
 
 /* Set font on dark areas to white */
