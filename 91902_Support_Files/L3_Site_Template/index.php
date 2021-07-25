@@ -4,7 +4,7 @@
 
 session_start();
 include("config.php");
-include("function.php");
+include("functions.php");
 
 // Connect to database...
 $dbconnect=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
