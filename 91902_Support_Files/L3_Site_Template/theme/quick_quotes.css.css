@@ -220,7 +220,14 @@ input {
     border-radius: 20px;
 }
 
-
+.tag {
+    background-color: bisque;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 1px #000;
+    border-radius: 5px;
+}
 
 
 
