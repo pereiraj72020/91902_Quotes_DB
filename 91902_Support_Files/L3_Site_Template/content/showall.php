@@ -22,8 +22,31 @@ do {
     
     ?>
 <div class="results">
-    <?php echo $quote; ?><br />
-    <?php echo $full_name; ?>
+    <p>
+        <?php echo $quote; ?><br />
+        <a href="index.php?page=author&authorID=<?php echo 
+        $find_rs['Author_ID']; ?>">
+            <?php echo $full_name; ?>
+        </a>
+    </p>
+    
+    <!-- subject tags go here -->
+    <p>
+        <?php
+            $sub1_ID = $find_rs['Subject1_ID'];
+            $sub2_ID = $find_rs['Subject2_ID'];
+            $sub3_ID = $find_rs['Subject3_ID'];
+    
+            $all_subjects = array($sub1_ID, $sub2_ID, $sub3_ID);        
+    
+            // loop through subject ID's and look up the subject name 
+            foreach($all_subjects as $subject) {
+                
+            } // end subject loop
+    
+        ?>    
+    
+    </p>
 </div>
 
 <br />
