@@ -6,9 +6,11 @@ if(!isset($_REQUEST['authorID']))
 }
 
 $author_to_find = $_REQUEST['authorID'];
+echo "Author: ".$author_to_find;
 
 $find_sql = "SELECT * FROM `quotes`
-JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
+JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE 
+`quotes`.`Author_ID` = $author_to_find
 ";
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
