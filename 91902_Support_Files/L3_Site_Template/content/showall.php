@@ -11,9 +11,19 @@ $find_rs = mysqli_fetch_assoc($find_query);
 // Loop through results and display them...
 do {
     
+    $quote = preg_replace('/[^A-Za-z0-9.,\s\'\-]/', ' ', $find_rs['Quote']);
+    
+    // author name...
+    $first = $find_rs['First'];
+    $middle = $find_rs['Initial'];
+    $last = $find_rs['Last'];
+    
+    $full_name = $first." ".$middle." ".$last;
+    
     ?>
 <div class="results">
-    <?php echo $find_rs['Quote']; ?>
+    <?php echo $quote; ?><br />
+    <?php echo $full_name; ?>
 </div>
 
 <br />
