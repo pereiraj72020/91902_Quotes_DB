@@ -32,14 +32,14 @@ if(mysqli_connect_errno()) {
     
             if(!isset($_REQUEST['page'])) {
                 include("content/home.php");
-            }
-                // end of if that includes home page
+            }   // end of if that includes home page
+        
             else {
                 // prevents users from navigating through file system
-                $page=preg_replace('/[^G-9a-zA-Z]-/','',$_REQUEST['page']);
+                $page=preg_replace('/[^0-9a-zA-Z]-/','',$_REQUEST['page']);
                 include("content/$page.php");
                 
-            } // end of else that includes requested content
+            }   // end of else that includes requested content
                 
             ?>
             
