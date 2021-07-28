@@ -26,9 +26,10 @@ do {
         $find_rs['Author_ID']; ?>">
             <?php echo $full_name; ?>
         </a>
+        
     </p>
     
-    <?php include("show_subjects.php")
+    <?php include("show_subjects.php"); ?>
    
 </div>
 
