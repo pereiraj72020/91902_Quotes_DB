@@ -40,7 +40,7 @@ do {
         </a>
     </p>
     
-    <?php include("show_subjects.php")
+    <?php include("show_subjects.php"); ?>
    
 </div>
 
