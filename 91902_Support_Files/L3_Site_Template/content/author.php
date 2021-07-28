@@ -38,8 +38,16 @@ include("get_author.php");
     <p>
         <?php
         // show countries...
-        country_job($dbconnect, $country1, $country2, "Birth Country", "Countries",
-        "country", "Country_ID", "Birth Country")
+        country_job($dbconnect, $country1, $country2, "Country", "Countries",
+        "country", "Country_ID", "Country")
+        ?>
+    </p>
+    
+    <p>
+        <?php
+        // show occupations...
+        country_job($dbconnect, $occupation1, $occupation2, "Career", "Careers",
+        "career", "Career_ID", "Career")
         ?>
     </p>
     
