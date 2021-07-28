@@ -7,6 +7,7 @@ if(!isset($_REQUEST['authorID']))
 
 $author_to_find = $_REQUEST['authorID'];
 
+
 $find_sql = "SELECT * FROM `quotes`
 JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE 
 `quotes`.`Author_ID` = $author_to_find
