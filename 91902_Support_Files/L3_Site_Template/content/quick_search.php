@@ -33,6 +33,12 @@ $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 $count = mysqli_num_rows($find_query);
 
+?>
+
+<h2>Quick Search Results (Search Term: <?php echo $quick_find ?>)</h2>
+
+<?php
+
 if($count > 0) {
     
 // Loop through results and display them...
