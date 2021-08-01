@@ -19,12 +19,13 @@ $subject_to_find = $_REQUEST['subject_ID'];
 <?php
     
 // get quotes
-
-
-
-$find_sql = "SELECT * FROM `quotes`
-JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
+$find_sql = "SELECT * FROM quotes
+JOIN author ON (`author`.`Author_ID`=`quotes`.`Author_ID`)
+WHERE `Subject1_ID` = $subject_to_find
+OR `Subject2_ID` = $subject_to_find
+OR `Subject3_ID` = $subject_to_find
 ";
+
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 
@@ -33,22 +34,29 @@ do {
     
     $quote = preg_replace('/[^A-Za-z0-9.,\s\'\-]/', ' ', $find_rs['Quote']);
     
-    // author name...
-    $first = $find_rs['First'];
-    $middle = $find_rs['Initial'];
-    $last = $find_rs['Last'];
-    
-    $full_name = $first." ".$middle." ".$last;
+    // get author name
+    include("get_author.php");
     
     ?>
-<div class="results">
+
+    <div class="results">
     <p>
         <?php echo $quote; ?><br />
-        <a href="index.php?page=author&authorID=<?php echo 
+        
+        <!-- display author name -->
+        <a href="index.php?page=author&authorID=<?php echo
         $find_rs['Author_ID']; ?>">
             <?php echo $full_name; ?>
         </a>
+        
     </p>
+
+    <?php include("show_subjects.php"); ?>
+        
+</div>
+    
+    $full_name = $first." ".$middle." ".$last;
+    
     
     <!-- subject tags go here -->
     <p>
@@ -91,7 +99,6 @@ do {
         ?>    
     
     </p>
-</div>
 
 <br />
 

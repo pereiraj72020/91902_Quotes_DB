@@ -24,7 +24,7 @@ if(mysqli_connect_errno()) {
     
     <div class="wrapper">
     
-            <?php include("content/heading_navigation.php") ?>
+            <?php include("content/heading_navigation.php"); ?>
         
         <div class="box main">
             
