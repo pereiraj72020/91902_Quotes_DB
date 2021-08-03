@@ -31,7 +31,29 @@
                 </div>  <!-- / top search -->
                 
                 <div class="topadmin">
-                    <a href="#">Log In</a>
+                    
+                    <?php
+                    
+                    if(isset($_SESSION['admin'])) {
+                        
+                    ?>
+                    
+                    Add Quote &nbsp; &nbsp;
+                    Log out
+                    
+                    <?php
+            
+                    } // end user is logged in if 
+                    
+                    else {
+                        ?>
+                    
+                    <a href="index.php?page../admin/login">Login</a>
+                    <?php
+                    }   // end of login else
+                    
+                    ?>
+                    
                     
                 </div>  <!-- / top admin -->
                 
