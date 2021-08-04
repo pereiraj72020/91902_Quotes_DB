@@ -17,6 +17,16 @@ if (isset($_SESSION['admin'])) {
     $tag_2 = "";
     $tag_3 = "";
     
+    // intialise tag ID's
+    $tag_1_ID = $tag_2_ID = $tag_3_ID = 0;
+    
+    $has_errors = "no";
+    
+    // set up error fields / visibility
+    $quote_error = $tag_1_error = "no-error";
+    $quote_field = "form-ok";
+    $tag_1_field = "tag-ok";
+    
 }   // end user logged in if
 
 else{
@@ -27,3 +37,19 @@ else{
 }   // end user not logged in else
 
 ?>
+
+<h1>Add Quote...</h1>
+
+<form autocomplete="off" method="post" action="<?php echo
+htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>"
+enctype="multipart/form-data">
+
+
+
+</form>
+
+
+
+
+
+
