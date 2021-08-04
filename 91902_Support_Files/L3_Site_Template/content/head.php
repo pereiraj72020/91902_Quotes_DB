@@ -12,6 +12,6 @@
     
     <!-- Edit the name of your style sheet - 'foo' is not a valid name!! -->
     <link rel="stylesheet" href="theme/quick_quotes.css.css"> 
-        <link rel="stylesheet" href="theme/font-awesome.min.css">
+    <link rel="stylesheet" href="theme/font-awesome.min.css.css">
     
 </head>
