@@ -3,7 +3,7 @@
     <p>Username: <input name="username" /></p>
     <p>Password: <input name="password" type="password" /></p>
 
-    <?php
+<?php
 if(isset($_GET['error'])) {
     
     ?>
