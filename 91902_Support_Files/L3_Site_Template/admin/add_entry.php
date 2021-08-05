@@ -6,9 +6,44 @@ if (isset($_SESSION['admin'])) {
     $author_ID = $_SESSION['Add_Quote'];
     echo "AuthorID: ".$author_ID;
     
+    if($author_ID=="unknown") {
+        
+    // get country & occupation lists from database
+    $all_countries_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
+    $all_countries = autocomplete_list($dbconnect, $all_countries_sql,
+    'Country');
+        
+    $all_occupations_sql = "SELECT * FROM `career` ORDER BY `Career` ASC ";
+    $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql,
+    'Career');
+        
+    // initialise author variables
+    $first = "";
+    $middle = "";
+    $last = "";
+    $yob = "";
+    $gender_code = "";
+    $country_1 = "";
+    $country_2 = "";
+    $occupation_1 = "";
+    $occupation_2 = "";
+        
+    // Initialise country and occupation ID's
+    $counry_1_ID = $country_2_ID = $occupation_1_ID = $occupation_2_ID = 0;
+        
+    // set up error fields / visibility
+    $last_error = $yob_error = $gender_error = $country_1_error =
+    $occupation_1_error = "no-error";
+        
+    $last_field = $yob_field = $gender_field = "form-ok";
+    $country_1_field = $occupation_1_field = "tag-ok";
+        
+    }   // end author variable initialisation if
+    
     // Get subject / topic list from database
-    $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC ";
+    $all_tags_sql = "SELECT * FROM  `subject` ORDER BY `Subject` ASC ";
     $all_subjects = autocomplete_list($dbconnect, $all_tags_sql, 'Subject');
+    
     
     // initialise form variables for quote
     $quote = "Please type your quote here";
@@ -122,21 +157,23 @@ enctype="multipart/form-data">
     </div>
     <div class="autocomplete">
         <input class="<?php echo $tag_1_field; ?>" id="subject1" type="text"
-        name="Subject_1" placeholder="Subject 1(Start Typing)...">
+        name="Subject_1" value="<?php echo $tag_1; ?>" placeholder="Subject 1(Start Typing)...">
     </div>
     
     <br/><br />
     
     <div class="autocomplete">
-        <input id="subject2" type="text" name="Subject_2"
-        placeholder="Subject 2 (Start Typing, optional)...">
+        <input id="subject2" type="text" name="Subject_2"  value="<?php echo
+        $tag_2; ?>" placeholder="Subject 2 (Start Typing, optional)...">
+        
     </div>
     
     <br/><br />
     
     <div class="autocomplete">
-        <input id="subject3" type="text" name="Subject_3"
-        placeholder="Subject 3 (Start Typing, optional)...">
+        <input id="subject3" type="text" name="Subject_3" value="<?php echo
+        $tag_3; ?>" placeholder="Subject 3 (Start Typing, optional)...">
+        
     </div>
     
     <br/><br />
