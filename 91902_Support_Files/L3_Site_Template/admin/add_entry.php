@@ -76,6 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $get_quote_rs = mysqli_fetch_assoc($get_quote_query);
         
     $quote_ID = $get_quote_rs['ID'];
+    $_SESSION['Quote_Success']=$quote_ID;
+        
+    // Go to success page...
+    header('Location: index.php?page=quote_success');
         
     }   // end add entry to database if
     
