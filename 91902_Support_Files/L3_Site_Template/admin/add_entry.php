@@ -23,6 +23,7 @@ if (isset($_SESSION['admin'])) {
     $last = "";
     $yob = "";
     $gender_code = "";
+    $gender = "";
     $country_1 = "";
     $country_2 = "";
     $occupation_1 = "";
@@ -136,6 +137,90 @@ else{
 <form autocomplete="off" method="post" action="<?php echo
 htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>"
 enctype="multipart/form-data">
+    
+    <?php
+    // fields to add new author information
+    
+    if ($author_ID=="unknown") {
+     
+    ?>
+    
+    <!-- Author's first name, optional -->
+    <input class="add-field" type="text" name="first" value="<?php echo
+    $first; ?>" placeholder="Author's First Name" />
+        
+    <br /><br />
+           
+    <input class="add-field" type="text" name="middle" value="<?php echo
+    $middle; ?>" placeholder="Author's Middle Name (optional)" />
+    
+    <br /><br />
+    
+    <div class="<?php echo $last_error; ?>">
+        Author's last name can't be blank
+    </div>
+    
+    <input class="add-field <?php echo $last_field; ?>" type="text"
+    name="last" value="<?php echo $last; ?>" placeholder="Author's Last Name"
+    />
+    
+    <br /><br />
+    
+    <select class="adv <?php echo $gender_field; ?>" name="gender">
+    
+        <?php
+        // Selected option (so form holds user input)
+        if($gender_cose=="") {
+            
+            ?>
+                <option value="" selected>Gender (Choose something)...
+                </option>
+        <?php
+        
+        }   // end gender not chose if
+        
+        else {
+            
+            ?>
+                <option value="<?php echo $gender_code;?>" selected><?php
+                echo $gender; ?></option>
+        <?php
+            
+            
+        }   // end gender chosen else
+        
+        ?>
+        
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+        
+    </select>
+    
+    <br /><br />
+    
+    <div class="<?php echo $yob_error; ?>">
+        Author's Year of Birth can't be blank
+    </div>
+    
+    <input class="add-field <?php echo $yob_field; ?>" type="text" name="yob"
+    value="<?php echo $yob; ?>" placeholder="Author's year of birth" />
+    
+    <br /><br />
+    
+    <div class="<?php echo $country_1_error ?>">
+        Please enter at least one country
+    </div>
+    
+    <div class="autocomplete ">
+        <input class="<?php $country_1_field; ?>" id="country1" type="text"
+        name="country1" placeholder="Country 1 (Start Typing)...">
+    </div>
+    
+    <?php
+        
+    }   // end new author fields
+    
+    ?>
 
     <!-- Quote text area -->
     <div class="<?php echo $quote_error; ?>">
