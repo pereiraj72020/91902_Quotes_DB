@@ -106,6 +106,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_field = "form-error";
         }
         
+         // check year of birth is valid
+    
+        $valid_yob = isValidYear($yob);
+
+        if($yob < 0 || $valid_yob != 1 || !preg_match('/^\d{1,4}$/', $yob))
+        {
+        $has_errors = "yes";
+        $yob_error = "error-text";
+        $yob_field = "form-error";
+        }
+
+        
     }   // end getting author values if
     
     // get data from form
@@ -114,9 +126,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tag_1 = mysqli_real_escape_string($dbconnect, $_POST['Subject_1']);
     $tag_2 = mysqli_real_escape_string($dbconnect, $_POST['Subject_2']);
     $tag_3 = mysqli_real_escape_string($dbconnect, $_POST['Subject_3']);
-
-    
-    // check data is valid
     
     // check quote is not blank
     if ($quote == "Please type your quote here" || $quote == "") {
@@ -239,7 +248,8 @@ enctype="multipart/form-data">
     <br /><br />
     
     <div class="<?php echo $yob_error; ?>">
-        Author's Year of Birth can't be blank
+        Please enter a valid year of birth (modern
+        authors only).
     </div>
     
     <input class="add-field <?php echo $yob_field; ?>" type="text" name="yob"
