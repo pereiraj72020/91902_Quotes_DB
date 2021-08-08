@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['country2']);
         $occupation_1 = mysqli_real_escape_string($dbconnect,
         $_POST['occupation1']);
-        $occupation_1 = mysqli_real_escape_string($dbconnect,
+        $occupation_2 = mysqli_real_escape_string($dbconnect,
         $_POST['occupation2']);
         
         // Error checking goes here
@@ -104,17 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $has_errors = "yes";
         $last_error = "error-text";
         $last_field = "form-error";
-        }
-        
-         // check year of birth is valid
-    
-        $valid_yob = isValidYear($yob);
-
-        if($yob < 0 || $valid_yob != 1 || !preg_match('/^\d{1,4}$/', $yob))
-        {
-        $has_errors = "yes";
-        $yob_error = "error-text";
-        $yob_field = "form-error";
         }
 
         
@@ -126,6 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tag_1 = mysqli_real_escape_string($dbconnect, $_POST['Subject_1']);
     $tag_2 = mysqli_real_escape_string($dbconnect, $_POST['Subject_2']);
     $tag_3 = mysqli_real_escape_string($dbconnect, $_POST['Subject_3']);
+    
+    // check data is valid
     
     // check quote is not blank
     if ($quote == "Please type your quote here" || $quote == "") {
