@@ -213,8 +213,39 @@ enctype="multipart/form-data">
     
     <div class="autocomplete ">
         <input class="<?php $country_1_field; ?>" id="country1" type="text"
-        name="country1" placeholder="Country 1 (Start Typing)...">
+        name="country1" value="<?php echo $country_1; ?>"
+        placeholder="Country 1 (Start Typing)...">
     </div>
+    
+    <br/><br />
+    
+    <div class="autocomplete">
+        <input id="country2" type="text" name="country2" 
+        name="country1" value="<?php echo $country_2; ?>"
+        placeholder="Country 2 (Start Typing)...">  
+    </div>
+    
+    <br/><br />
+    
+    <div class="<?php echo $occupation_1_error ?>">
+        Please enter at least one country
+    </div>
+    
+    <div class="autocomplete">
+        <input class="<?php $occupation_1_field; ?>" id="occupation1" type="text" 
+        name="occupation1" value="<?php echo $occupation_1; ?>"
+        placeholder="Occupation 1 (Required, Start Typing)...">
+    </div>
+    
+    <br/><br />
+    
+    <div class="autocomplete">
+        <input id="occupation2" type="text" name="occupation2"
+        name="occupation2" value="<?php echo $occupation_2; ?>"
+        placeholder="Occupation 2 (Start Typing)...">
+    </div>
+    
+    <br/><br />
     
     <?php
         
