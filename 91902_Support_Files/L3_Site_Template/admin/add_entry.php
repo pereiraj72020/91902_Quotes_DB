@@ -68,6 +68,46 @@ if (isset($_SESSION['admin'])) {
 // Code below executes when the form is submitted...
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
+    // if author is unknown, get values from author part of form
+    if($author_ID=="unknown") {
+        $first = mysqli_real_escape_string($dbconnect, $_POST['first']);
+        $middle = mysqli_real_escape_string($dbconnect, $POST['middle']);
+        $last = mysqli_real_escape_string($dbconnect, $POST['last']);
+        $yob = mysqli_real_escape_string($dbconnect, $POST['yob']);
+                
+        $gender_code = mysqli_real_escape_string($dbconnect,
+        $_POST['gender']);
+        if ($gender_code=="F") {
+            $gender = "Female";
+        }
+        else if ($gender_code=="M") {
+                $gender = "Male";
+        }
+        
+        else {
+            $gender = "";
+        }
+        
+        $country_1 = mysqli_real_escape_string($dbconnect,
+        $_POST['country1']);
+        $country_2 = mysqli_real_escape_string($dbconnect,
+        $_POST['country2']);
+        $occupation_1 = mysqli_real_escape_string($dbconnect,
+        $_POST['occupation1']);
+        $occupation_1 = mysqli_real_escape_string($dbconnect,
+        $_POST['occupation2']);
+        
+        // Error checking goes here
+        
+        // check last name is not blank
+        if ($last == "") {
+        $has_errors = "yes";
+        $last_error = "error-text";
+        $last_field = "form-error";
+        }
+        
+    }   // end getting author values if
+    
     // get data from form
     $quote = mysqli_real_escape_string($dbconnect, $_POST['quote']);
     $notes = mysqli_real_escape_string($dbconnect, $_POST['notes']);
@@ -79,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // check data is valid
     
     // check quote is not blank
-    if ($quote == "Please type your quote here") {
+    if ($quote == "Please type your quote here" || $quote == "") {
         $has_errors = "yes";
         $quote_error = "error-text";
         $quote_field = "form-error";
@@ -166,7 +206,7 @@ enctype="multipart/form-data">
     
     <br /><br />
     
-    <select class="adv <?php echo $gender_field; ?>" name="gender">
+    <select class="adv gender <?php echo $gender_field; ?>" name="gender">
     
         <?php
         // Selected option (so form holds user input)
