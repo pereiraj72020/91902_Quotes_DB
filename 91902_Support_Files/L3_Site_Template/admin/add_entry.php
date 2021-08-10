@@ -71,9 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // if author is unknown, get values from author part of form
     if($author_ID=="unknown") {
         $first = mysqli_real_escape_string($dbconnect, $_POST['first']);
-        $middle = mysqli_real_escape_string($dbconnect, $POST['middle']);
-        $last = mysqli_real_escape_string($dbconnect, $POST['last']);
-        $yob = mysqli_real_escape_string($dbconnect, $POST['yob']);
+        $middle = mysqli_real_escape_string($dbconnect, $_POST['middle']);
+        $last = mysqli_real_escape_string($dbconnect, $_POST['last']);
+        $yob = mysqli_real_escape_string($dbconnect, $_POST['yob']);
                 
         $gender_code = mysqli_real_escape_string($dbconnect,
         $_POST['gender']);
@@ -210,7 +210,7 @@ enctype="multipart/form-data">
     
         <?php
         // Selected option (so form holds user input)
-        if($gender_cose=="") {
+        if($gender_code=="") {
             
             ?>
                 <option value="" selected>Gender (Choose something)...
