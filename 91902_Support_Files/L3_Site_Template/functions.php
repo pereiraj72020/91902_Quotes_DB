@@ -119,4 +119,49 @@ function country_job($dbconnect, $entity_1, $entity_2, $label_sg, $label_pl, $ta
      
 }
 
+    
+    
+function isValidYear($year)
+{
+    // returns 1 if valid and nothing is invalid, source:
+    // https://stackoverflow.com/questions/1684100/php-form-validation-for-year
+        
+     // Convert to timestamp
+     $start_year         =   strtotime(date('Y') - 5000); //5000 Years back
+     $end_year           =   strtotime(date('Y')); // Current Year
+     $received_year      =   strtotime($year);
+
+    // Check that user date is between start & end
+    return (($received_year >= $start_year) && ($received_year <= $end_year));
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

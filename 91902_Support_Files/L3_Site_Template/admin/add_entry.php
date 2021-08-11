@@ -106,6 +106,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_field = "form-error";
         }
 
+        // check year of birth is valid 
+        
+        $valid_yob = isValidYear($yob);
+        
+        if($yob < 0 || $valid_yob != 1 || !preg_match('/^\d{1,4}$/', $yob))
+        {
+        $has_errors = "yes";
+        $yob_error = "error-text";
+        $yob_field = "form-error";
+        }
+        
+        // check that first country has been filled in
+        if ($country_1 == "") {
+            $has_errors = "yes";
+            $country_1_error = "error-text";
+            $country_1_field = "tag-error";
+            }
+        
+        // check that first country has been filled in
+        if ($occupation_1 == "") {
+            $has_errors = "yes";
+            $occupation_1_error = "error-text";
+            $occupation_1_field = "tag-error";
+            }
+        
         
     }   // end getting author values if
     
@@ -141,6 +166,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tag_2);
     $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject',
     $tag_3);
+        
+    // add author to database if we have a new author...
+    if ($author_ID=="unknown")
+    {
+        // add author to database
+        $add_author_sql = "INSERT INTO `author` (`Author_ID`, `First`,
+        `Initial`, `Last`, `Gender`, `Born`, `Country1_ID`, `Country2_ID`,
+        `Job1_ID`, `Job2_ID`) VALUES (NULL, '$first', '$middle',
+        '$last', '$gender_code', '$yob', '$countryID_1', '$countryID_2',
+        '$occupationID_1', '$occupationID_2');";
+        $add_author_query = mysqli_query($dbconnect, $add_author_sql);
+        
+        // Get Author ID
+        $find_author_sql = "SELECT * FROM `author` WHERE `Last` = '$last'";
+        $find_author_query = mysqli_query($dbconnect, $find_author_sql);
+        $find_author_rs = mysqli_fetch_assoc($find_author_query);
+        
+        $new_authorID = $find_author_rs['Author_ID'];
+        echo "New Author ID:".$new_authorID;
+        
+        $author_ID = $new_authorID;
+    }
         
     // add entry to database
     $addentry_sql = "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3');";
@@ -253,7 +300,7 @@ enctype="multipart/form-data">
     </div>
     
     <div class="autocomplete ">
-        <input class="<?php $country_1_field; ?>" id="country1" type="text"
+        <input class="<?php echo $country_1_field; ?>" id="country1" type="text"
         name="country1" value="<?php echo $country_1; ?>"
         placeholder="Country 1 (Start Typing)...">
     </div>
@@ -273,7 +320,7 @@ enctype="multipart/form-data">
     </div>
     
     <div class="autocomplete">
-        <input class="<?php $occupation_1_field; ?>" id="occupation1" type="text" 
+        <input class="<?php echo $occupation_1_field; ?>" id="occupation1" type="text" 
         name="occupation1" value="<?php echo $occupation_1; ?>"
         placeholder="Occupation 1 (Required, Start Typing)...">
     </div>
