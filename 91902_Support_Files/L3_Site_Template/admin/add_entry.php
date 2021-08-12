@@ -131,6 +131,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $occupation_1_field = "tag-error";
             }
         
+        // get country and occupation IDs
+        $countryID_1 = get_ID($dbconnect, 'country', 'Country_ID',
+        'Country', $country_1);
+        $countryID_2 = get_ID($dbconnect, 'country', 'Country_ID',
+        'Country', $country_2);
+
+        $occupationID_1 = get_ID($dbconnect, 'career', 'Career_ID',
+        'Career', $occupation_1);
+        $occupationID_2 = get_ID($dbconnect, 'career', 'Career_ID',
+        'Career', $occupation_2);
+        
         
     }   // end getting author values if
     

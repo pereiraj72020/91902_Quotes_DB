@@ -135,7 +135,6 @@ function isValidYear($year)
     return (($received_year >= $start_year) && ($received_year <= $end_year));
 }
 
-?>
 
 
 
