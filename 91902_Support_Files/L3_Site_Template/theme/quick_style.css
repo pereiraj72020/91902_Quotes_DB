@@ -5,18 +5,8 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* Box (for corners & padding) */
-.box {
-    padding-left: 20px;
-    /* border-radius: 10px; */
-    background-color: #ddd;
-}
 
-
-/* Set up grids... specifics */
-
-/*  #### Grid for Main page #### */
-
+/* ---- Set up site grid ---- */
 
 .wrapper {
     display: grid;
@@ -42,6 +32,31 @@ body {
     }
 }
 
+/* ---- End of grid setup for main pages ---- */
+
+
+/* -000- Area styling -000- */
+
+.box {
+    padding-left: 20px;
+    /* border-radius: 10px; */
+    background-color: #ddd;
+}
+
+/* Area colouring... */
+
+/* logo, banner and footer background are the same */
+.logo, .banner, .footer {
+    background-color: #888;  /* dark grey */
+}
+
+/* Set font on dark areas to white */
+.logo, .banner, .side, .footer {
+    color: #fff;
+}
+
+/* Area specifics */
+
 
 .banner {
     grid-area: banner;
@@ -58,8 +73,10 @@ body {
 
 .main {
     grid-area: main;
-    background-color: #eee;  /* very pale grey */
+    background-color: #a6ddcf;  /* very pale blue */
     border: solid 1px #CCC;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 
@@ -69,8 +86,10 @@ body {
     padding: 20px;
 }
 
-/*  #### Grid for Navigation area page #### */
 
+/* navigation grid setup -- */
+
+/* ---- Grid for links --- */
 .linkwrapper {
     display: grid;
     grid-template-columns: 3fr 2fr 1fr;
@@ -82,20 +101,24 @@ body {
 
 .commonsearches {
     grid-area: commonsearches;
+    max-width: 400px;
     text-align: center;
 }
 
 .topsearch {
     grid-area: topsearch;
+    max-width: 350px;
     text-align: right;
 }
 
 .topadmin {
     grid-area: topadmin;
+    max-width: 350px;
     text-align: center;
 }
 
-/* Make navigation reponsive... */
+
+/* Make navigation responsive... */
 
 @media only screen and (max-width: 800px) {
     .linkwrapper{
@@ -111,30 +134,87 @@ body {
         text-align: left;
     }
     
-    
     .topsearch {
         text-align: left;
     }
-
+    
     .topadmin {
         text-align: right;
     }
-
+    
 }
 
-/* Area colouring... */
 
-/* logo, banner and footer background are the same */
-.banner, .footer {
-    background-color: #d76868;  /* light red */
+/* very narrow screen */
+
+@media only screen and (max-width: 500px) {
+    .linkwrapper{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "commonsearches"
+        "topsearch" 
+        "topadmin"
+        ;
+    }
+    
+    .commonsearches {
+        text-align: left;
+    }
+    
+    .topsearch {
+        text-align: left;
+        max-width: 250px;
+    }
+    
+    .topadmin {
+        text-align: right;
+        padding-right: 40px;
+    }
+    
 }
 
-/* Set font on dark areas to white */
-.logo, .banner, .side, .footer {
-    color: #fff;
+/* -000- End of area styling -000- */
+
+h1, h2, h3, h4 {
+    font-family: 'Ubuntu', sans-serif;
 }
 
-/* #### Links Styling  #### */
+/* Tag formatting */
+.tag {
+    background-color: bisque;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;    
+    border: solid 1px #000;
+    border-radius: 5px;
+}
+
+.country {
+    background-color: white;
+    }
+
+.career {
+    background-color: #c8f4e9;
+    }
+
+/* end tag formatting */
+
+.about {
+    background-color: bisque;
+    border: solid 1px #d37000;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+.error {
+    background-color: #ffcece;
+    color: #721a1a;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 1px #721a1a;
+}
 
 /* Navigation Links */
 a.topnav {font-weight: bold;}
@@ -148,19 +228,32 @@ a:link{color: #007c72;} /* dark teal */
 a:visited{color: #222;} /* dark grey */
 a:hover{color: #707a00;}    /* Dark Green*/
 
-/* #### Headings / text styling #### */
-h1, h2, h3, h4 {
-    font-family: 'Ubuntu', sans-serif;
-}
 
+/* Home link at top left */
+a.backhome:link, a.backhome:visited {color: #fff;}
+a.backhome:hover {color: bisque;}
+
+
+/* Sub Heading Formatting */
 .sub_heading {
     font-family: 'Ubuntu', sans-serif;
     color: #593849; /* purple */
     font-weight: bold;
 }
 
-/* ### Form / Search  Styling #### */
+.results {
+    background-color: #f7f7f7;
+    border: solid 1px #00c1b4;
+    padding: 10px;
+    margin: auto;
+    border-radius: 20px;
+}
 
+/* ##### Search Form Formatting ##### */
+
+
+
+/* Top Search Bar */
 form {
     width: 100%;
 }
@@ -175,8 +268,9 @@ form {
 }
 
 
+/* quick search submit button */
 .submit {
-    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     position:relative;
     width: 45px;
     font-size: 14px;
@@ -191,6 +285,14 @@ form {
 }
 
 
+/* Form formatting (add / edit quotes etc) */
+
+.add-quote-form {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* All submit buttons EXCEPT the quick search bar */
 input[type="submit"]:hover {
     background-color: #ffd575;
 }
@@ -202,10 +304,10 @@ input {
     display: inline-block;
     border: 1px solid #000;
     box-sizing: border-box; 
-    width: 95%;
+    width:  95%;
 }
 
-input.short{
+input.short {
     width: 100px;
 }
 
@@ -215,51 +317,18 @@ input.short{
     display: inline-block;
 }
 
-/* #### Results styling, includes 'tags' buttons #### */
-.results {
-    background-color: #f7f7f7;
-    border: solid 1px #00c1b4;
-    padding: 10px;
-    
-    margin-right: 20px;
-    border-radius: 20px;
-}
-
-.tag {
-    background-color: bisque;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: solid 1px #000;
-    border-radius: 5px;
-}
-
-.about {
-    background-color: bisque;
-    border: solid 1px #d37000;
-    padding: 10px;
-    border-radius: 10px;
-    margin-right: 20px;
-}
-
-.error {
-    background-color: #ffcece;
-    color: #721a1a;
-    border-radius: 10px;
-    padding: 10px;
-    border: solid 1px #721a1a;
-}
-
-/* Form Formatting css */
-
 /* make height of drop downs slightly larger */
 select {
     height: 40px;
     padding: 5px;
 }
 
-/* controls input field on autocomplete boxes (pink for an error, white for 
-OK) */
+
+textarea,
+input[type=text] {
+    font-family: 'Lato', sans-serif;
+    padding: 10px;
+}
 
 input.tag-error[type=text] {
     background-color: #ff9e9e;
@@ -269,14 +338,34 @@ input.tag-ok[type=text] {
     background-color: #fff;
 }
 
+textarea {
+    width: 90%;
+    max-width: 700px;
+    
+}
+
+/* top icons */
+.top-icons {
+    font-size: 75%;
+}
+
+/* editing tools formatting */
+.edit-tools {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Form Error CSS */
+
 /* field backgrounds */
 .form-ok {
-    background-color: #fff;
+    background-color:#fff;
 }
 
 .form-error {
     background-color: #ff9e9e;
 }
+
 
 /* error messages */
 .no-error {
@@ -286,25 +375,6 @@ input.tag-ok[type=text] {
 .error-text {
     color: darkred;
 }
-
-textarea,
-input[type=text] {
-    font-family: 'Lato', sans-serif;
-    padding: 10px;
-}
-
-textarea {
-    width: 90%;
-    max-width: 700px;
-}
-
-.gender {
-    width: 95%;
-}
-
-
-
-
 
 
 
