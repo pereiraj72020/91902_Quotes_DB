@@ -47,7 +47,7 @@ body {
 
 /* logo, banner and footer background are the same */
 .logo, .banner, .footer {
-    background-color: #888;  /* dark grey */
+    background-color: #15BD99;  /* Turquoise */
 }
 
 /* Set font on dark areas to white */
@@ -215,6 +215,11 @@ h1, h2, h3, h4 {
     padding: 10px;
     border: solid 1px #721a1a;
 }
+
+/* #### Links Styling #### */
+
+a.heading:link, a.heading:visited {color: #fff;
+text-decoration: none; }
 
 /* Navigation Links */
 a.topnav {font-weight: bold;}

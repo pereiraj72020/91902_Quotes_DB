@@ -24,12 +24,12 @@ $find_sql = "SELECT * FROM quotes
 JOIN author ON (`author`.`Author_ID`=`quotes`.`Author_ID`)
 WHERE `Last` LIKE '%$quick_find%'
 OR `First` LIKE '%$quick_find%'
+OR `Quote` LIKE '%$quick_find%'
 OR `Subject1_ID` = $subject_ID
 OR `Subject2_ID` = $subject_ID
 OR `Subject3_ID` = $subject_ID
 
 ";
-
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 $count = mysqli_num_rows($find_query);

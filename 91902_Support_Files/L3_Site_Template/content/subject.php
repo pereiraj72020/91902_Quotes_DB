@@ -7,7 +7,9 @@ if(!isset($_REQUEST['subjectID']))
 
 $subject_to_find = $_REQUEST['subjectID'];
 
-    $sub_sql = "SELECT * FROM `subject` WHERE `Subject_ID` = $subject_to_find";
+    // get subject heading...
+    $sub_sql = "SELECT * FROM `subject` WHERE `Subject_ID` = 
+    $subject_to_find";
     $sub_query = mysqli_query($dbconnect, $sub_sql);
     $sub_rs = mysqli_fetch_assoc($sub_query);
 
@@ -17,7 +19,7 @@ $subject_to_find = $_REQUEST['subjectID'];
 
 <?php
 
-
+// get quotes
 $find_sql = "SELECT * FROM quotes
 JOIN author ON (`author`.`Author_ID`=`quotes`.`Author_ID`)
 WHERE `Subject1_ID` = $subject_to_find 
@@ -30,7 +32,14 @@ $find_rs = mysqli_fetch_assoc($find_query);
 
 // Loop through results and dislay them...
 
-do { ?>
+do { 
+
+    $quote = preg_replace('/[^A-Za-z0-9.?,\s\'\-\-]/', ' ', $find_rs['Quote']);
+    
+    // get author name
+    include("get_author.php");
+
+    ?>
 
 <div class="results">
 
