@@ -57,6 +57,3 @@
     }   // end logged in if showing editing tools
     
     ?>
-    
-    
-</p>
