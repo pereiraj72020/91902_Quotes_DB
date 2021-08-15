@@ -1,0 +1,383 @@
+body {
+    margin: auto;
+    padding: 50px;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* ---- Set up site grid ---- */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "banner nav"
+        "main main"
+        "footer footer";
+        grid-gap: 4px;
+    
+}
+
+@media only screen and (max-width: 1100px) {
+    .wrapper{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "banner"
+        "nav"
+        "main"
+        "footer";
+    }
+}
+
+/* ---- End of grid setup for main pages ---- */
+
+
+/* -000- Area styling -000- */
+
+.box {
+    padding-left: 20px;
+    /* border-radius: 10px; */
+    background-color: #ddd;
+}
+
+/* Area colouring... */
+
+/* logo, banner and footer background are the same */
+.logo, .banner, .footer {
+    background-color: #888;  /* dark grey */
+}
+
+/* Set font on dark areas to white */
+.logo, .banner, .side, .footer {
+    color: #fff;
+}
+
+/* Area specifics */
+
+
+.banner {
+    grid-area: banner;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #DDD;  /* silver */
+    font-size: 150%;
+    padding: 20px;
+    vertical-align: middle;
+    border: solid 1px;
+}
+
+.main {
+    grid-area: main;
+    background-color: #a6ddcf;  /* very pale blue */
+    border: solid 1px #CCC;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+.footer {
+    grid-area: footer;
+    text-align: right;
+    padding: 20px;
+}
+
+
+/* navigation grid setup -- */
+
+/* ---- Grid for links --- */
+.linkwrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-areas: 
+        "commonsearches topsearch topadmin";
+    grid-gap: 4px;
+}
+
+
+.commonsearches {
+    grid-area: commonsearches;
+    max-width: 400px;
+    text-align: center;
+}
+
+.topsearch {
+    grid-area: topsearch;
+    max-width: 350px;
+    text-align: right;
+}
+
+.topadmin {
+    grid-area: topadmin;
+    max-width: 350px;
+    text-align: center;
+}
+
+
+/* Make navigation responsive... */
+
+@media only screen and (max-width: 800px) {
+    .linkwrapper{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "commonsearches commonsearches"
+        "topsearch topadmin"
+        ;
+    }
+    
+    .commonsearches {
+        text-align: left;
+    }
+    
+    .topsearch {
+        text-align: left;
+    }
+    
+    .topadmin {
+        text-align: right;
+    }
+    
+}
+
+
+/* very narrow screen */
+
+@media only screen and (max-width: 500px) {
+    .linkwrapper{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "commonsearches"
+        "topsearch" 
+        "topadmin"
+        ;
+    }
+    
+    .commonsearches {
+        text-align: left;
+    }
+    
+    .topsearch {
+        text-align: left;
+        max-width: 250px;
+    }
+    
+    .topadmin {
+        text-align: right;
+        padding-right: 40px;
+    }
+    
+}
+
+/* -000- End of area styling -000- */
+
+h1, h2, h3, h4 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Tag formatting */
+.tag {
+    background-color: bisque;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;    
+    border: solid 1px #000;
+    border-radius: 5px;
+}
+
+.country {
+    background-color: white;
+    }
+
+.career {
+    background-color: #c8f4e9;
+    }
+
+/* end tag formatting */
+
+.about {
+    background-color: bisque;
+    border: solid 1px #d37000;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+.error {
+    background-color: #ffcece;
+    color: #721a1a;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 1px #721a1a;
+}
+
+/* Navigation Links */
+a.topnav {font-weight: bold;}
+a.topnav:link, a.topnav:visited {color: #007c72;} /*dark teal */
+a.topnav:hover {color: #707a00; text-decoration: none;} 
+
+
+/* links in page */
+a {font-weight: bold;}
+a:link{color: #007c72;} /* dark teal */
+a:visited{color: #222;} /* dark grey */
+a:hover{color: #707a00;}    /* Dark Green*/
+
+
+/* Home link at top left */
+a.backhome:link, a.backhome:visited {color: #fff;}
+a.backhome:hover {color: bisque;}
+
+
+/* Sub Heading Formatting */
+.sub_heading {
+    font-family: 'Ubuntu', sans-serif;
+    color: #593849; /* purple */
+    font-weight: bold;
+}
+
+.results {
+    background-color: #f7f7f7;
+    border: solid 1px #00c1b4;
+    padding: 10px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+/* ##### Search Form Formatting ##### */
+
+
+
+/* Top Search Bar */
+form {
+    width: 100%;
+}
+
+.search {
+    background:#fff;
+    width: 75%;
+}
+
+.submit::-moz-focus-inner { 
+    border: 0;
+}
+
+
+/* quick search submit button */
+.submit {
+    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    position:relative;
+    width: 45px;
+    font-size: 14px;
+    
+    left:-5px;
+    background-color: #636263; 
+    color:#d6d3d7;
+    border: 1px solid #000;
+    border-radius: 0 5px 5px 0;   
+    display: inline-block;
+    padding: 10px;
+}
+
+
+/* Form formatting (add / edit quotes etc) */
+
+.add-quote-form {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* All submit buttons EXCEPT the quick search bar */
+input[type="submit"]:hover {
+    background-color: #ffd575;
+}
+
+
+input {
+    font-size: 14px;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid #000;
+    box-sizing: border-box; 
+    width:  95%;
+}
+
+input.short {
+    width: 100px;
+}
+
+
+.quicksearch {
+    border-radius: 5px 0 0 5px; 
+    display: inline-block;
+}
+
+/* make height of drop downs slightly larger */
+select {
+    height: 40px;
+    padding: 5px;
+}
+
+
+textarea,
+input[type=text] {
+    font-family: 'Lato', sans-serif;
+    padding: 10px;
+}
+
+input.tag-error[type=text] {
+    background-color: #ff9e9e;
+}
+
+input.tag-ok[type=text] {
+    background-color: #fff;
+}
+
+textarea {
+    width: 90%;
+    max-width: 700px;
+    
+}
+
+/* top icons */
+.top-icons {
+    font-size: 75%;
+}
+
+/* editing tools formatting */
+.edit-tools {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Form Error CSS */
+
+/* field backgrounds */
+.form-ok {
+    background-color:#fff;
+}
+
+.form-error {
+    background-color: #ff9e9e;
+}
+
+
+/* error messages */
+.no-error {
+    display: none;
+}
+
+.error-text {
+    color: darkred;
+}
+
+
+
+
+
+
