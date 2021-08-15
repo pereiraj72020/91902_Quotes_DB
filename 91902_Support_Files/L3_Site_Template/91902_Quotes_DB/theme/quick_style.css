@@ -89,10 +89,11 @@ body {
 
 /* navigation grid setup -- */
 
-/* ---- Grid for links --- */
+/* #### Grid for Navigation area page #### */
+
 .linkwrapper {
     display: grid;
-    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-columns: 1fr 300px 200px;
     grid-template-areas: 
         "commonsearches topsearch topadmin";
     grid-gap: 4px;

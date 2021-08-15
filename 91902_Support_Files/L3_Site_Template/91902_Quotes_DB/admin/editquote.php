@@ -37,13 +37,16 @@ $subject2_ID = $find_quote_rs['Subject2_ID'];
 $subject3_ID = $find_quote_rs['Subject3_ID'];
 
 // retrieve subject names from subject table...
-$tag_1_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = $subject1_ID");
+$tag_1_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject1_ID");
 $tag_1 = $tag_1_rs['Subject'];
 
-$tag_2_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = $subject2_ID");
+$tag_2_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject2_ID");
 $tag_2 = $tag_2_rs['Subject'];
 
-$tag_3_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = $subject3_ID");
+$tag_3_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject3_ID");
 $tag_3 = $tag_3_rs['Subject'];
 
 // initialise tag ID's
@@ -85,14 +88,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     
     // Get subject ID's via get_ID function...
-    $subjectID_1 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_1);
-    $subjectID_2 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_2);
-    $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_3);
+    $subjectID_1 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', 
+    $tag_1);
+    $subjectID_2 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', 
+    $tag_2);
+    $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', 
+    $tag_3);
     
     
     // edit entry to database
-$editentry_sql = "UPDATE `quotes` SET `Author_ID` = '$author_ID', `Quote` = '$quote', `Notes` = '$notes', `Subject1_ID` = '$subjectID_1', `Subject2_ID` = '$subjectID_2', `Subject3_ID` = '$subjectID_3' WHERE `quotes`.`ID` = $ID;";
-$editentry_query = mysqli_query($dbconnect, $editentry_sql);
+    $editentry_sql = "UPDATE `quotes` SET `Author_ID` = '$author_ID', `Quote` = '$quote', `Notes` = '$notes', `Subject1_ID` = '$subjectID_1', `Subject2_ID` = '$subjectID_2', `Subject3_ID` = '$subjectID_3' WHERE `quotes`.`ID` = $ID;";
+    $editentry_query = mysqli_query($dbconnect, $editentry_sql);
     
     // get quote ID for next page
     $get_quote_sql = "SELECT * FROM `quotes` WHERE `Quote` = '$quote'";
