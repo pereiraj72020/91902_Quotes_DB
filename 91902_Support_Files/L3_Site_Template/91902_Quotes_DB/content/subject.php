@@ -31,7 +31,6 @@ $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 
 // Loop through results and dislay them...
-
 do { 
 
     $quote = preg_replace('/[^A-Za-z0-9.?,\s\'\-\-]/', ' ', $find_rs['Quote']);

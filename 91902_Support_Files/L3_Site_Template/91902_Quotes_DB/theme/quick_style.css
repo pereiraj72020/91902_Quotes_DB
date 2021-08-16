@@ -217,6 +217,11 @@ h1, h2, h3, h4 {
     border: solid 1px #721a1a;
 }
 
+/* #### Links Styling ####*/
+
+a.heading:link, a.heading:visited {color: #fff;
+text-decoration: none; }
+
 /* Navigation Links */
 a.topnav {font-weight: bold;}
 a.topnav:link, a.topnav:visited {color: #007c72;} /*dark teal */

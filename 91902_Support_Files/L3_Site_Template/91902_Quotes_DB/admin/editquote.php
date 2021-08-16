@@ -62,7 +62,7 @@ $tag_1_field = "tag-ok";
 // Code below excutes when the form is submitted...
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // get values from quote secion of form
+    // get values from quote section of form
     $author_ID = mysqli_real_escape_string($dbconnect, $_POST['author']);
     $quote = mysqli_real_escape_string($dbconnect, $_POST['quote']);
     $notes = mysqli_real_escape_string($dbconnect, $_POST['notes']);
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 
-// if author id is unknow, get author details
+// if author id is unknown, get author details
 
 ?>
 

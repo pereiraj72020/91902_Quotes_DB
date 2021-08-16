@@ -97,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $occupationID_2 = get_ID($dbconnect, 'career', 'Career_ID', 'Career', $occupation_2);
 
     // edit entry to database
-$editauthor_sql = "UPDATE `author` SET `First` = '$first', `Last` = '$last', `Gender` = '$gender_code', `Born` = '$yob', `Country1_ID` = '$countryID_1', `Country2_ID` = '$countryID_2', `Job1_ID` = '$occupationID_1', `Job2_ID` = '$occupationID_2' WHERE `author`.`Author_ID` = $author_ID;";
-$editentry_author = mysqli_query($dbconnect, $editauthor_sql);
+    $editauthor_sql = "UPDATE `author` SET `First` = '$first', `Middle`='$middle', `Last` = '$last', `Gender` = '$gender_code', `Born` = '$yob', `Country1_ID` = '$countryID_1', `Country2_ID` = '$countryID_2', `Job1_ID` = '$occupationID_1', `Job2_ID` = '$occupationID_2' WHERE `author`.`Author_ID` = $author_ID;";
+    $editentry_author = mysqli_query($dbconnect, $editauthor_sql);
     
     // get author ID and go to author success page
     
